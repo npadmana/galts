@@ -32,6 +32,12 @@
 \newcommand{\imod}{i_{\rm mod}}
 \newcommand{\gcmod}{g_{\rm cmod}}
 \newcommand{\rcmod}{r_{\rm cmod}}
+\newcommand{\icmod}{i_{\rm cmod}}
+\newcommand{\ipsf}{i_{\rm psf}}
+\newcommand{\zpsf}{z_{\rm psf}}
+\newcommand{\zmod}{z_{\rm mod}}
+\newcommand{\rpsf}{r_{\rm psf}}
+\newcommand{\ifib}{i_{\rm fib2}}
 
 %% You can insert a short comment on the title page using the command below.
 
@@ -160,11 +166,16 @@ to describe the low redshift locus and
 to describe the high redshift locus. As discussed above, the colors are defined
 using SDSS model magnitudes, and are extinction-corrected. As was discussed in
 Eis et al CITE??, the two sets of colors are necessary to describe the color
-locus first when the 4000\AA break is in the SDSS $g$ band and then when it
+locus first when the 4000\AA\ break is in the SDSS $g$ band and then when it
 redshifts into the $r$ band at $z\sim0.4$. This naturally divides target
 selection into low and high redshift samples divided approximately at
-$z\sim0.4$. Figure ???? plots these colors compared with both the stellar locus,
-as well as a population of passively evolving galaxies.
+$z\sim0.4$. 
+
+Figure ???? plots these colors compared with both the stellar locus,
+as well as a population of passively evolving galaxies. We see that $\cll$ runs
+parallel to the low redshift galaxy locus, while $\cpp$ is approximately
+perpendicular to it. The high redshift locus is described by $\dpp$ which runs
+parallel to it. 
 
 \begin{figure}
 \caption{Figure showing the various colors compared to galaxy and stellar loci.}
@@ -179,6 +190,25 @@ The low redshift (denoted LOWZ) sample
 
 
 \subsection{Summary of Target Selection}
+
+We summarize the two target selection algorithms here. The LOWZ targets are
+defined by 
+\begin{eqnarray}
+\rcmod  & < & 13.5 + \cll/0.3 \\ 
+|\cpp| & < & 0.2 \\
+16 & < & 19.6 \\
+\rpsf - \rcmod & > & 0.3 \,\,,
+\end{eqnarray}
+while the CMASS objects are selected by 
+\begin{eqnarray}
+\icmod & < & 19.86 + 1.6(\dpp - 0.8) \\
+17.5 & < \icmod <  & 19.9 \\
+\dpp & > & 0.55 \\
+\ipsf - \imod & > & 0.2 + 0.2(20 - \imod) \\
+\zpsf - \zmod & > & 9.125 - 0.46 \zmod \\
+\rmod - \imod & < & 2 \\
+\ifib & < & 21.5 \,\,.
+\end{eqnarray}
 
 \subsection{Sample Usage}
 
