@@ -1,5 +1,9 @@
 \documentclass[iop,apj]{emulateapj}
-
+\usepackage{times}
+\usepackage{graphicx}
+%\usepackage{fixltx2e}
+\usepackage{astrobib_mnras2e}
+\usepackage{lineno}
 
 %% preprint2 produces a double-column, single-spaced document:
 
@@ -20,8 +24,14 @@
 %% your macros. See the AASTeX v5.x Author Guide
 %% for information.
 
-%\newcommand{\vdag}{(v)^\dagger}
-%\newcommand{\myemail}{skywalker@galaxy.far.far.away}
+\newcommand{\cpp}{c_{\perp}}
+\newcommand{\cll}{c_{||}}
+\newcommand{\dpp}{d_{\perp}}
+\newcommand{\gmod}{g_{\rm mod}}
+\newcommand{\rmod}{r_{\rm mod}}
+\newcommand{\imod}{i_{\rm mod}}
+\newcommand{\gcmod}{g_{\rm cmod}}
+\newcommand{\rcmod}{r_{\rm cmod}}
 
 %% You can insert a short comment on the title page using the command below.
 
@@ -41,6 +51,8 @@
 %% paper itself with \begin{document}.
 
 \begin{document}
+\topmargin-1cm
+\linenumbers
 
 %% LaTeX will automatically break titles if they run longer than
 %% one line. However, you may use \\ to force a line break if
@@ -133,8 +145,35 @@ This paper is organized as follows FINISH THIS????
 
 \subsection{Color Definitions}
 
+In order to succintly describe the galaxy target selection, it is convenient to
+define a set of auxiliary colors that track the locus of a passively evolving
+population of galaxies in $gri$ color space. Following CITE Eisenstein et al???
+and Cannon et al???? CITE, we define 
+\begin{eqnarray}
+\cll & = &  0.7 (\gmod - \rmod) + 1.2(\rmod - \imod - 0.18)  \\
+\cpp & = & (\rmod - \imod) - (\gmod - \rmod)/4.0 - 0.18 
+\end{eqnarray}
+to describe the low redshift locus and 
+\begin{eqnarray}
+\dpp & = & (\rmod - \imod) - (\gmod - \rmod)/8 \,,
+\end{eqnarray}
+to describe the high redshift locus. As discussed above, the colors are defined
+using SDSS model magnitudes, and are extinction-corrected. As was discussed in
+Eis et al CITE??, the two sets of colors are necessary to describe the color
+locus first when the 4000\AA break is in the SDSS $g$ band and then when it
+redshifts into the $r$ band at $z\sim0.4$. This naturally divides target
+selection into low and high redshift samples divided approximately at
+$z\sim0.4$. Figure ???? plots these colors compared with both the stellar locus,
+as well as a population of passively evolving galaxies.
+
+\begin{figure}
+\caption{Figure showing the various colors compared to galaxy and stellar loci.}
+\label{fig:color}
+\end{figure}
+
 \subsection{The LOWZ sample}
 
+The low redshift (denoted LOWZ) sample 
 
 \subsection{The CMASS sample}
 
