@@ -194,10 +194,43 @@ parallel to it.
 
 \subsection{The LOWZ sample}
 
-The low redshift (denoted LOWZ) sample 
+The low redshift (denoted LOWZ) sample is designed to be a straightforward
+extension of the SDSS-I/II Cut I Luminous Red Galaxy Sample (CITE???).
+WRITE DOWN PRINCIPAL CUTS AND MOTIVATION BEHIND THEM - ISOLATING THE GALAXY
+LOCUS AND THEN A COLOR MAGNITUDE CUT TO GET AN SELECT THE BRIGHTEST OBJECTS. 
+CUT TUNED TO GET AN APPROXIMATELY VOLUME LIMITED SAMPLE. ALSO DESCRIBE MAGNITUDE
+LIMITS OF THE SAMPLE.
+
+STAR GALAXY SEPARATION.
+
+DESCRIBE OVERLAP WITH SDSS-I/II SAMPLE. HOW BIG IS THIS OVERLAP? WE DO NOT
+TARGET GALAXIES ALREADY OBSERVED IN SDSS-I/II.
+
+DESCRIBE TS BUG. GIVE SIMPLE PRESCRIPTION FOR SKIPPING IT. SEE APPENDIX FOR
+DETAILS.
 
 \subsection{The CMASS sample}
 
+EXPLAIN BASIC MOTIVATION BEHIND THE CMASS SAMPLE -- EXTEND CUT II LRGS AND 2SLAQ
+LRGS. REMOVE COLOR CUT
+
+EXPLAIN DPERP CUT AND SLIDING COLOR MAGNITUDE CUT
+
+\begin{figure}
+\caption{Figure showing imag vs dperp and all the various cuts we make, marked.}
+\end{figure}
+
+EXPLAIN STAR GALAXY SEPARATION -- ORIGINAL AND ADDED Z-BAND CUT.
+
+\begin{figure}
+\caption{Figure motivating the z-band star galaxy separation}
+\end{figure}
+
+EXPLAIN IFIBER2 CUT.
+
+\subsection{Sparse Sampling Cuts}
+
+LIST THE CUTS HERE AND MOTIVATION
 
 \subsection{Summary of Target Selection}
 
@@ -206,7 +239,7 @@ defined by
 \begin{eqnarray}
 \rcmod  & < & 13.5 + \cll/0.3 \\ 
 |\cpp| & < & 0.2 \\
-16 & < & 19.6 \\
+16 & < \rcmod < & 19.6 \\
 \rpsf - \rcmod & > & 0.3 \,\,,
 \end{eqnarray}
 while the CMASS objects are selected by 
@@ -220,12 +253,30 @@ while the CMASS objects are selected by
 \ifib & < & 21.5 \,\,.
 \end{eqnarray}
 
+DESCRIBE CMASS SPARSE SAMPLE CUT AS WELL.
+
+REPEAT ALL THE FLAG CUTS HERE.
+
 \subsection{Sample Usage}
+
+EXPLAIN BOSSTARGET1 AND ALL THE BITS
+
+TRACK DOWN WHEN ONE OF THE BOSSTARGET1 BITS GOT OVERLOADED.
 
 \section{Sample Properties}
 
-\subsection{Redshift Distributions}
+\begin{figure}
+\caption{The number densities of the SDSS-I/II, LOWZ and CMASS objects}
+\end{figure}
 
+\begin{figure}
+\caption{The absolute magnitudes of these galaxies, compared with SDSS-I/II
+objects.}
+\end{figure}
+
+DISCUSS NUMBER DENSITIES AND ABSOLUTE MAGNITUDES
+
+DISCUSS NORTH V SOUTH (OR JUST REFERENCE PAPERS ON THIS).
 
 \section{Conclusions}
 
@@ -233,6 +284,9 @@ while the CMASS objects are selected by
 \appendix
 
 \section{Commissioning Data}
+
+EXPLAIN THE ORIGINAL COMMISSIONING CUTS (ONLY FOR DATA WE PLAN ON RELEASING). 
+
 
 \section{Changes in Galaxy ``RESOLVE''}
 
@@ -243,6 +297,11 @@ GETS SOLVED IN THE DATA RELEASE.
 \caption{An Aitoff projection showing the regions of sky where the primary
 objects changed. MAKE THIS FIGURE.}
 \end{figure}
+
+\section{A Bug in the LOWZ Galaxy Selection}
+
+DESCRIBE THE BUG IN DETAIL. WHAT CUT WAS EXACTLY MADE? WHAT DATA DID IT EFFECT?
+SHOW THE EFFECT ON THE NUMBER DENSITY OF TARGETS. REPEAT HOW ONE CAN AVOID THIS.
 
 
 \end{document}
