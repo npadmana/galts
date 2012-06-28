@@ -197,9 +197,17 @@ do not make any cuts on photometricity at this stage; users constructing their
 own samples for science analyses are advised to use the CALIB\_STATUS flag to
 cut on photometricity (restricting to photometric observations corresponds to
 \texttt{CALIB\_STATUS==1}). We also cull objects with suspect photometry as
-reported in the flags set by the imaging pipeline. In particular, we require 
-LIST ALL THE FLAG NAMES WE USE HERE. The full list of selection criteria for the
-parent sample is ???? NEED TO TYPE ALL THIS IN ????
+reported in the flags set by the imaging pipeline. In particular, we require
+\begin{enumerate}
+  \item Objects that are flagged as detected in the $r$ and $i$ bands i.e. they
+  have one of the BINNED1, BINNED2 or BINNED4 flags set in both the $r$ and $i$ bands.
+  \item Objects not to be saturated :\texttt{(NOT SATUR) OR (SATUR AND (NOT
+  SATUR\_CENTER))}
+  \item Blended objects : \texttt{(NOT BLENDED) OR (NOT NODEBLEND)}
+  \item Other photometric quality flags : \texttt{(NOT BRIGHT) AND (NOT
+  TOO\_MANY\_PEAKS) AND (NOT PEAKCENTER) AND (NOT NOTCHECKED) AND (NOT
+  NOPROFILE)}
+\end{enumerate}
 
 HIGHLIGHT CHANGE IN RESOLVE, AND HOW DO YOU FIX THIS. 
 
@@ -308,12 +316,36 @@ TRACK DOWN WHEN ONE OF THE BOSSTARGET1 BITS GOT OVERLOADED.
 \section{Sample Properties}
 
 \begin{figure}
-\caption{The number densities of the SDSS-I/II, LOWZ and CMASS objects}
+\includegraphics[width=0.95\columnwidth]{plots/nbarz-40-chunk6-21-CMASS_LOWZ_SPARSE}
+\caption{The number densities of the Legacy, LOWZ and CMASS, and SPARSE 
+galaxies. The LOWZ curve plotted here only includes {\it new} galaxies targeted
+by BOSS, and does not include the Legacy targets. These are a
+significant fraction of all the LOWZ targets. The BOSS+Legacy curve represents
+the full BOSS sample, including both galaxies with spectra obtained by BOSS and
+those with existing spectra. We observe that the BOSS galaxy target selection is
+meeting its target goal (thin dashed lines).}
+\label{fig:nbar}
 \end{figure}
 
 \begin{figure}
-\caption{The absolute magnitudes of these galaxies, compared with SDSS-I/II
-objects.}
+\includegraphics[width=0.95\columnwidth]{plots/LOWZ-r_absmag}
+\caption{The absolute rest-frame $r$ band magnitudes of LOWZ and CMASS
+galaxies. These magnitudes are k-corrected using the NEED DETAILS FROM JOHN
+HERE????. The vertical lines plot the median magnitudes of both samples.We
+subdivide the LOWZ sample into the Legacy SDSS-I/II galaxies and galaxies with spectra 
+obtained by BOSS. As designed, the newer galaxies are
+$\sim$ 0.5 magnitudes fainter.}
+\label{fig:absmag}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=0.95\columnwidth]{plots/LOWZ-stellarmass}
+\caption{The stellar masses of the LOWZ and CMASS galaxies, obtained using NEED
+DETAILS HERE????. The vertical lines show the median ???? stellar mass of both
+samples. We find that both samples have very similar stellar mass distributions.
+As in Fig.~\ref{fig:absmag}, we separate the LOWZ sample into Legacy and BOSS
+galaxies and find that the BOSS galaxies }
+\label{fig:stellarmass}
 \end{figure}
 
 DISCUSS NUMBER DENSITIES AND ABSOLUTE MAGNITUDES
