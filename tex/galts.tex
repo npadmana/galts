@@ -1,4 +1,5 @@
-\documentclass[iop,apj]{emulateapj}
+%\documentclass[iop,apj]{emulateapj}
+\documentclass[preprint]{aastex}
 \usepackage{times}
 \usepackage{graphicx}
 %\usepackage{fixltx2e}
@@ -92,8 +93,7 @@
 %% editorial office after submission.
 
 \begin{abstract}
-
-
+BOSS galaxies are great. 
 \end{abstract}
 
 %% Keywords should appear after the \end{abstract} command. The uncommented
@@ -147,17 +147,61 @@ This paper is organized as follows FINISH THIS????
 
 \subsection{Imaging Data}
 
-USUAL SDSS IMAGING BOILERPLATE WOULD GO HERE.
+The Sloan Digital Sky Survey (SDSS-I/II) imaged ??,000 deg$^2$ of the sky in 
+the $ugriz$ bands using a specially designed camera on the 2.5m telescope at 
+Apache Point Observatory in New Mexico. The SDSS-III project obtained additional
+imaging for ?,000 deg$^2$ if sky in the Southern Galactic Hemisphere. As part
+of this imaging effort, the original SDSS-I/II data and the SDSS-III data were
+reduced with the latest versions of the SDSS image processing and calibration
+pipelines. These data were released as part of Data Release 8 (CITE), and
+a 10,000 deg$^2$ subsample of high Galactic latitude, low extinction data is 
+the parent imaging catalog for the BOSS galaxy target selection. We note that
+there are a number of differences between the reductions common to DR7 and DR8
+(see the DR8 paper CITE for a detailed discussion); reproducing the BOSS galaxy
+sample requires using the DR8 sample. 
 
-DESCRIBE THE VARIOUS MAGNITUDES USED IN TARGET SELECTION - PSF, MODEL, FIBER2, 
-AND CMODEL AND WHERE THEY GET USED.
+The SDSS imaging pipeline returns a number of different estimates of the
+photometry of galaxies. We briefly describe the ones used in the galaxy target
+selection here; longer descriptions may be found on the SDSS website
+\footnote{\texttt{http://www.sdss3.org/dr8}} and in relevant data release papers
+(CITES HERE???). In all cases, all magnitudes have been corrected for Galactic
+extinction (CITE SFD?????). 
+
+The colors of galaxies are based on SDSS model magnitudes (denoted by the
+subscript mod). These are determined by using the best-fit (psf-convolved)
+deVaucouleurs or exponential profile fit in the $r$ band to determine the fluxes
+in the other bands. Cuts in apparent magnitude are made with ``cmodel''
+magnitudes (denoted by a subscript cmod). These are a linear combination of the
+flux from the best fit exponential and deVaucouleur profile fit in each band
+separately\footnote{contrasted with model magnitudes where the fit in the $r$
+band is used} 
+\begin{equation}
+f_{\rm cmod} = (1 - P) f_{\rm exp} + P f_{\rm deV} \, , 
+\end{equation}
+where $P$ is the probability of an exponential or deVaucouleur profile
+(reported as ${\rm frac}_{\rm deV}$ by the SDSS pipelines), and $f$ represents
+the flux ({\it not magnitude}) assuming an exponential or deVaucouleur profile. 
+Star-galaxy separation compares the PSF magnitudes of galaxies (denoted by a
+subscript PSF) with model or cmodel magnitudes; PSF magnitudes underestimate the 
+flux from extended sources compared with the model fits. Finally, we use 
+``fiber2'' (denoted by subscript fib2) magnitudes to estimate the expected flux
+through the SDSS-III 2'' fibers. 
 
 DOCUMENT THE PARENT SAMPLE FOR TARGET SELECTION - PRIMARY OBJECTS, NO CUT ON 
 PHOTOMETRICITY, WHAT FLAGS GET USED, GALAXIES.
+The parent sample for the BOSS galaxy target selection is constructed by
+selecting all detected objects that the photometric pipeline classifies as
+galaxies, and that are ``resolved'' to be PRIMARY (i.e. either the only or the
+best observation of this object; see the DR8 documentation for more details). We
+do not make any cuts on photometricity at this stage; users constructing their
+own samples for science analyses are advised to use the CALIB\_STATUS flag to
+cut on photometricity (restricting to photometric observations corresponds to
+\texttt{CALIB\_STATUS==1}). We also cull objects with suspect photometry as
+reported in the flags set by the imaging pipeline. In particular, we require 
+LIST ALL THE FLAG NAMES WE USE HERE. The full list of selection criteria for the
+parent sample is ???? NEED TO TYPE ALL THIS IN ????
 
 HIGHLIGHT CHANGE IN RESOLVE, AND HOW DO YOU FIX THIS. 
-
-
 
 \subsection{Color Definitions}
 
@@ -255,8 +299,6 @@ while the CMASS objects are selected by
 
 DESCRIBE CMASS SPARSE SAMPLE CUT AS WELL.
 
-REPEAT ALL THE FLAG CUTS HERE.
-
 \subsection{Sample Usage}
 
 EXPLAIN BOSSTARGET1 AND ALL THE BITS
@@ -281,14 +323,54 @@ DISCUSS NORTH V SOUTH (OR JUST REFERENCE PAPERS ON THIS).
 \section{Conclusions}
 
 
+\section{Acknowledgments}
+
+Funding for SDSS-III has been provided by the Alfred P. Sloan
+Foundation, the Participating Institutions, the National Science
+Foundation, and the U.S. Department of Energy Office of Science. The
+SDSS-III web site is http://www.sdss3.org/.
+
+SDSS-III is managed by the Astrophysical Research Consortium for the
+Participating Institutions of the SDSS-III Collaboration including the
+University of Arizona,
+the Brazilian Participation Group,
+Brookhaven National Laboratory,
+University of Cambridge,
+Carnegie Mellon University,
+University of Florida,
+the French Participation Group,
+the German Participation Group,
+Harvard University,
+the Instituto de Astrofisica de Canarias,
+the Michigan State/Notre Dame/JINA Participation Group,
+Johns Hopkins University,
+Lawrence Berkeley National Laboratory,
+Max Planck Institute for Astrophysics,
+Max Planck Institute for Extraterrestrial Physics,
+New Mexico State University,
+New York University,
+Ohio State University,
+Pennsylvania State University,
+University of Portsmouth,
+Princeton University,
+the Spanish Participation Group,
+University of Tokyo,
+University of Utah,
+Vanderbilt University,
+University of Virginia,
+University of Washington,
+and Yale University.
+
 \appendix
 
 \section{Commissioning Data}
+\label{app:comm}
 
 EXPLAIN THE ORIGINAL COMMISSIONING CUTS (ONLY FOR DATA WE PLAN ON RELEASING). 
 
 
 \section{Changes in Galaxy ``RESOLVE''}
+\label{app:resolve}
 
 DESCRIBE THE CHANGES HERE. DOCUMENT WHEN THE CHANGE HAPPENED, AND HOW THIS 
 GETS SOLVED IN THE DATA RELEASE.
@@ -299,6 +381,7 @@ objects changed. MAKE THIS FIGURE.}
 \end{figure}
 
 \section{A Bug in the LOWZ Galaxy Selection}
+\label{app:lowzbug}
 
 DESCRIBE THE BUG IN DETAIL. WHAT CUT WAS EXACTLY MADE? WHAT DATA DID IT EFFECT?
 SHOW THE EFFECT ON THE NUMBER DENSITY OF TARGETS. REPEAT HOW ONE CAN AVOID THIS.
